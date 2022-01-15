@@ -56,19 +56,19 @@ with open(file_to_load) as election_data:
         #3. Iterate each time a candidate earns a vote
         candidate_votes[candidate_name] += 1
 
-        #Save results to a text file
-        with open(file_to_save, "w") as txt_file:
+#Save results to a text file
+with open(file_to_save, "w") as txt_file:
 
-            election_results = (
-            f"\nElection Results\n"
-            f"-------------------------\n"
-            f"Total Votes: {total_votes:,}\n"
-            f"-------------------------\n")
-
-    txt_file.write(election_results)
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n")
     print(election_results, end="")
 
-    print()
+    #Save the final vote count to the text file
+    txt_file.write(election_results) 
+    
     for candidate_name in candidate_votes:
         #1. Vote count of each candidate
         votes = candidate_votes[candidate_name]
@@ -85,10 +85,11 @@ with open(file_to_load) as election_data:
             winning_candidate = candidate_name
 
     winning_candidate_summary = (
-    f"-------------------------\n"
-    f"Winner: {winning_candidate}\n"
-    f"Winning Vote Count: {winning_count:,}\n"
-    f"Winning Percentage: {winning_percentage:.1f}%\n"
-    f"-------------------------\n")
+        f"-------------------------\n"
+        f"Winner: {winning_candidate}\n"
+        f"Winning Vote Count: {winning_count:,}\n"
+        f"Winning Percentage: {winning_percentage:.1f}%\n"
+        f"-------------------------\n")
 
-#print(winning_candidate_summary)
+    print(winning_candidate_summary)
+    txt_file.write(winning_candidate_summary)
