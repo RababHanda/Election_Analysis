@@ -14,7 +14,9 @@ This project audits the election results from 3 Colorado constituencies from an 
 - A total of **369,711** votes were cast in this congressional election
 - The breakdown of the total votes across the counties were as follows, with Denver bringing in the highest percentage of the total votes at *82.8%*, Jefferson at *10.5%* followed by Arapahoe at a measly *6.7%:*
 ![Votes per County)](/Resources/VotesPerCounty.png)
-<img src="/Resources/VotesPerCounty.png" width="100" height="100">
+<img src="/Resources/VotesPerCounty.png" width="60%" height="40%">
+
+
 - **Denver** had the largest turnout of voters
 - 
 ## Election-Audit Summary
