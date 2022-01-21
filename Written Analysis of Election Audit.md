@@ -13,26 +13,40 @@ This project audits the election results from 3 Colorado constituencies from an 
 
 - A total of **369,711** votes were cast in this congressional election
 - The breakdown of the total votes across the counties were as follows, with Denver bringing in the highest percentage of the total votes at *82.8%*, Jefferson at *10.5%* followed by Arapahoe at a measly *6.7%*:
-<!--  ![Votes per County)](/Resources/VotesPerCounty.png)  -->
+
 <p align="center">
 <img src="/Resources/VotesPerCounty.png" width="60%" height="40%">
 </p>
 
-- **Denver** had the largest turnout of voters
+- The county of **Denver** had the largest turnout of voters
 - Out of a total of 3 candidates, Charles Casper won *23%* of the total, Diana DeGette *73.8%* and Raymon Anthony Doane *3.1%*:
 
 <p align="center">
 <img src="/Resources/VotesPerCandidate.png" width="60%" height="40%">
 </p>
 
-- As a clear indication from the graph above, **Diana DeGette** won the election by a landslide bagging 272,892 votes in total (73.8%)
+- As a clear indication from the graph above, **Diana DeGette** won the election by a landslide, bagging **272,892** votes in total (*73.8%*)
 
 ## Election-Audit Summary
 
-The script used for this audit is universal as it determines all values and 
+The script used for this audit is universal as it determines all values and factors while reading the data, therefore it can be easily used for analysing any such results. In this report we only determine the turnout per county and the votes per candidate, however this script can be modified to achieve the following results as well:
+
+1. **Votes cast per candidate from each county:** this can help determine how the population of a couty reacts to the candidate's manifestos, the winner from each county - as that might be different from the overall winner, etc. The most populated counties will have the power to sway the results to their favour, provided the turnout is proportional to the population.
+
+    - To do so we will need to declare a new dictionary (which will have nested dictionaries in it)
+    ```python
+    votes_candidate_county = {
+        'county1' : {'candidate1': votes1, 'candidate2': votes2, 'candidate3': votes3}
+        'county2' : {'candidate1': votes2_1, 'candidate2': votes2_2, 'candidate3': votes2_3}
+        'county3' : {'candidate1': votes3_1, 'candidate2': votes3_2, 'candidate3': votes3_3}
+    }
+    ```
+
+2. 
+
 ### Modification Suggestions
 
-| Modification | Result |
+| Objective | Modificaion |
 | --- | --- |
-| git status | List all new or modified files |
+| Votes cast per candidate from each county | List all new or modified files |
 | git diff | Show file differences that haven't been staged |
