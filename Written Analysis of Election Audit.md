@@ -29,11 +29,18 @@ This project audits the election results from 3 Colorado constituencies from an 
 
 ## Election-Audit Summary
 
-The script used for this audit is universal as it determines all values and factors while reading the data, therefore it can be easily used for analysing any such results. In this report we only determine the turnout per county and the votes per candidate, however this script can be modified to achieve the following results as well:
+The script used for this audit is universal as it determines all values and factors while reading the data, therefore it can be easily used for analysing any such results. However the code can be polished a little more to:
 
-1. **Votes cast per candidate from each county:** this can help determine how the population of a couty reacts to the candidate's manifestos, the winner from each county - as that might be different from the overall winner, etc. The most populated counties will have the power to sway the results to their favour, provided the turnout is proportional to the population.
+1. | Objective | Modificaion | Example |
+| --- | --- | --- |
+| Simplify loading the file | Instead of using `os` to join the path, a separte variable can be declared that is equal to the the absolute location of the file. So in future the only change one will have to make is to change the location of the new file they want to auit | Doing so won't require the user to break up the location and add it to the parantheses in `os.path.join()` |
+| git diff | Show file differences that haven't been staged |
 
-    - To do so we will need to declare a new dictionary (which will have nested dictionaries in it)
+In this report we only determine the turnout per county and the votes per candidate, however this script can be modified to achieve the following results as well:
+
+2. **Votes cast per candidate from each county:** this can help determine how the population of a couty reacts to the candidate's manifestos, the winner from each county - as that might be different from the overall winner, etc. The most populated counties will have the power to sway the results to their favour, provided the turnout is proportional to the population.
+
+    - To do so we will need to declare a new dictionary (which will have nested dictionaries in it). This new dictionary will have the following structure
     ```python
     votes_candidate_county = {
         'county1' : {'candidate1': votes1, 'candidate2': votes2, 'candidate3': votes3}
@@ -41,8 +48,17 @@ The script used for this audit is universal as it determines all values and fact
         'county3' : {'candidate1': votes3_1, 'candidate2': votes3_2, 'candidate3': votes3_3}
     }
     ```
+    - Then, the following piece of code will do the work:
 
-2. 
+    ```python
+    if county_name not in votes_county_candidate: 
+            votes_county_candidate[county_name] ={}
+        if candidate_name not in counties_result[county_name]:
+            votes_county_candidate[county_name][candidate_name] = 1
+        else:
+            votes_county_candidate[county_name][candidate_name] += 1
+
+    ```
 
 ### Modification Suggestions
 
