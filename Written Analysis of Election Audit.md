@@ -27,14 +27,19 @@ This project audits the election results from 3 Colorado constituencies from an 
 
 - As a clear indication from the graph above, **Diana DeGette** won the election by a landslide, bagging **272,892** votes in total (*73.8%*)
 
+A breakdown of votes:
+
+| Votes per County | Votes per Candidate |
+| --- | --- |
+| ![Old Math percent results](/Resources/county_pie.png) | ![Old Math percent results](/Resources/candidate_pie.png) |
+
 ## Election-Audit Summary
 
 The script used for this audit is universal as it determines all values and factors while reading the data, therefore it can be easily used for analysing any such results. However the code can be polished a little more to:
 
-1. 
-| Objective | Modificaion | Example |
+1. | Objective | Modificaion | Example |
 | --- | --- | --- |
-| **Simplify loading the file** | Instead of using `os` to join the path, a separte variable can be declared that is equal to the the absolute location of the file. So in future the only change one will have to make is to change the location of the new file they want to auit | Doing so won't require the user to break up the location and add it to the parantheses in `os.path.join()` |
+| **Simplify loading the file** | Instead of using `os` to join the path, a separte variable can be declared that is equal to the the absolute location of the file. Doing so won't require the user to break up the location and add it to the parantheses in `os.path.join()` | The only change one will have to make is to change the location of the new file they want to auit.  The file be loaded as `file_to_load = "Users/name/folder1/folder2/ELECTION_ANALYSIS/Resources/any_election_data.csv"`|
 | **Detecting Columns** | Should a results file arrive with the order of the columns different from the oneused for this audit, `candidate_name = row[2]` and `county_name = row[1]` will  be rendered useless ans the code won't work. | The first row after the header can be used to determine each column. The one with number will be the column of the Ballot ID, the one with more than one name (space between strings) would be the candidate column (unless there is St. etc in the name then that would be the county column) |
 
 In this report we only determine the turnout per county and the votes per candidate, however this script can be modified to achieve the following results as well:
